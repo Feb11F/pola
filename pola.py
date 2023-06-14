@@ -59,6 +59,10 @@ with st.container():
         submit = st.button("submit")
 
         if submit:
+            with open('tfidf_data.pkl', 'rb') as file:
+                loaded_data_tfid = pickle.load(file)
+            with open('dt_model.pkl', 'rb') as file:
+                loaded_model = pickle.load(file)
             def prepodatainput(data_uji):
                 ulasan_case_folding = data_uji.lower()
 
@@ -92,10 +96,7 @@ with st.container():
                 stemmer = factory.create_stemmer()
                 stem = stemmer.stem(gabung)
                 return(ulasan_case_folding,clean_symbols,tokens,gabung,stem)
-                with open('tfidf_data.pkl', 'rb') as file:
-                    loaded_data_tfid = pickle.load(file)
-                with open('dt_model.pkl', 'rb') as file:
-                    loaded_model = pickle.load(file)
+
                 ulasan_case_folding,clean_symbols,tokens,gabung,stem = prepodatainput(data_uji)
                 data_akhir = loaded_data_tfid.transform([stem]).toarray()
                 y_preds = loaded_model.predict(data_akhir)
