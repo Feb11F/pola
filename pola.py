@@ -53,16 +53,17 @@ with st.container():
 
 
     if selected == "Implementation":
+        with open('tfidf_data.pkl', 'rb') as file:
+            loaded_data_tfid = pickle.load(file)
+        with open('dt_model.pkl', 'rb') as file:
+            loaded_model = pickle.load(file)
         #Getting input from user
         data_uji = st.text_input('Masukkan kata yang akan di analisa :')
 
         submit = st.button("submit")
 
         if submit:
-            with open('tfidf_data.pkl', 'rb') as file:
-                loaded_data_tfid = pickle.load(file)
-            with open('dt_model.pkl', 'rb') as file:
-                loaded_model = pickle.load(file)
+
             def prepodatainput(data_uji):
                 ulasan_case_folding = data_uji.lower()
 
