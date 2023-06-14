@@ -97,10 +97,10 @@ with st.container():
 
                 ulasan_case_folding,clean_symbols,tokens,gabung,stem = prepodatainput(data_uji)
                             # df_tfidfvect = pd.DataFrame(data = tfidf_wm.toarray(),columns = tfidf_tokens)
-                with open('knnk9.pkl', 'rb') as file:
+                with open('dt_model.pkl', 'rb') as file:
                     loaded_model = pickle.load(file)
 
-                with open('tfidf.pkl', 'rb') as file:
+                with open('tfidf_data.pkl', 'rb') as file:
                     loaded_data_tfid = pickle.load(file)
                 data_akhir = loaded_data_tfid.transform([stem]).toarray()
                 y_preds = loaded_model.predict(data_akhir)
