@@ -102,9 +102,5 @@ with st.container():
                 y_preds = loaded_model.predict(data_akhir)
             
                 st.subheader('Prediksi')
-                if y_preds == "positive":
-                    st.success('Positive')
-                else:
-                    st.error('Negative')
-
+                st.write(y_preds)
         
