@@ -53,10 +53,7 @@ with st.container():
 
 
     if selected == "Implementation":
-        with open('tfidf_data.pkl', 'rb') as file:
-            loaded_data_tfid = pickle.load(file)
-        with open('dt_model.pkl', 'rb') as file:
-            loaded_model = pickle.load(file)
+
         #Getting input from user
         data_uji = st.text_input('Masukkan kata yang akan di analisa :')
 
@@ -99,6 +96,12 @@ with st.container():
                 return(ulasan_case_folding,clean_symbols,tokens,gabung,stem)
 
                 ulasan_case_folding,clean_symbols,tokens,gabung,stem = prepodatainput(data_uji)
+                            # df_tfidfvect = pd.DataFrame(data = tfidf_wm.toarray(),columns = tfidf_tokens)
+                with open('knnk9.pkl', 'rb') as file:
+                    loaded_model = pickle.load(file)
+
+                with open('tfidf.pkl', 'rb') as file:
+                loaded_data_tfid = pickle.load(file)
                 data_akhir = loaded_data_tfid.transform([stem]).toarray()
                 y_preds = loaded_model.predict(data_akhir)
             
