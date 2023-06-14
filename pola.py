@@ -101,7 +101,7 @@ with st.container():
                     loaded_model = pickle.load(file)
 
                 with open('tfidf.pkl', 'rb') as file:
-                loaded_data_tfid = pickle.load(file)
+                    loaded_data_tfid = pickle.load(file)
                 data_akhir = loaded_data_tfid.transform([stem]).toarray()
                 y_preds = loaded_model.predict(data_akhir)
             
