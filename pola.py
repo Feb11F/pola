@@ -54,7 +54,7 @@ with st.container():
 
     if selected == "Implementation":
         #Getting input from user
-        iu = st.text_area('Masukkan kata yang akan di analisa :')
+        data_uji = st.text_area('Masukkan kata yang akan di analisa :')
 
         submit = st.button("submit")
 
