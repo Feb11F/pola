@@ -100,6 +100,11 @@ with st.container():
                 ulasan_case_folding,clean_symbols,tokens,gabung,stem = prepodatainput(data_uji)
                 data_akhir = loaded_data_tfid.transform([stem]).toarray()
                 y_preds = loaded_model.predict(data_akhir)
-                st.write(y_preds)
+            
+                st.subheader('Prediksi')
+                if y_preds == "positive":
+                    st.success('Positive')
+                else:
+                    st.error('Negative')
 
         
